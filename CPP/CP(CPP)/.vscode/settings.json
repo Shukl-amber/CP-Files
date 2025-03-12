@@ -69,6 +69,8 @@
     "bitset": "cpp",
     "chrono": "cpp",
     "algorithm": "cpp",
-    "array": "cpp"
+    "array": "cpp",
+    "random": "cpp",
+    "cstdlib": "cpp"
   }
 }
