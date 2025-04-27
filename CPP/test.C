@@ -1,10 +1,15 @@
 #include <iostream>
 
 using namespace std;
-inline void cub(int s) { s *s *s; }
+
+int add(){
+    static int x=10;
+    x+=10;
+    return x;
+}
+
 int main()
 {
-    cout<<"Loading";
-    sleep(1000)
-    return 0;
+    cout << add() << endl;
+    cout << add() << endl;
 }
