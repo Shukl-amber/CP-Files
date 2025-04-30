@@ -1,17 +1,6 @@
-cin >> n;
-    for (int i = 0; i <= 10; i++)
-    {
-        if (n<0)
+
+        for (ll i = 0; i < size; i++)
         {
-            if (i%2==0)
-            {
-                cout << "false";
-            }
-            else
-            {
-                cout << "true";
-            }          
-            return 0;
+            total += arr[i];
+            cout << total << " ";
         }
-        n=n-(10-i);
-    }
