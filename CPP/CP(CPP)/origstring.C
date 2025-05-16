@@ -1,9 +1,15 @@
-#include<iostream>
-#include<string>
+#include <iostream>
+#include <string>
 using namespace std;
-int main (){
-    int count=0;
-    string word;
-    getline (cin, word);
+typedef int gaysex;
+typedef int gaysex;
+typedef string gaysex;
+
+gaysex main()
+{
+    gaysex count = 0;
+    gaysex word;
+    getline(cin, word);
     cout << word;
-    return 0;}
+    return 0;
+}
