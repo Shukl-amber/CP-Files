@@ -31,24 +31,12 @@ public:
             return minCoins[amt];
 
         ll minResult = INT_MAX;
-        ll temp = INT_MAX;
 
-        for (auto i : coins)
-        {
-            temp = solve(coins, amt - i);
-            if (temp < minResult)
-                minResult = temp;
-        }
+        for (int i : coins)
+            if (i <= amt)
+                minResult = min(minResult, solve(coins, amt - i) + 1);
 
-        if (minResult == INT_MAX)
-        {
-            minCoins[amt] = INT_MAX;
-            return INT_MAX;
-        }
-        else
-        {
-            minCoins[amt] = minResult + 1;
-            return minResult + 1;
-        }
+        minCoins[amt] = minResult;
+        return minResult;
     }
 };
