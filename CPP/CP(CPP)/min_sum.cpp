@@ -8,26 +8,33 @@ int main()
     cin >> tc;
     while (tc--)
     {
-        ll size, mod, base = 0;
-        cin >> size >> mod;
+        ll size, m;
+        cin >> size >> m;
+
         vector<ll> arr(size);
-        for (ll i = 0; i < size; i++)
-            cin >> arr[i],
-                base += arr[i];
+        vector<ll> counter(m, 0);
+        ll base = 0, Min = 0, curr = 0;
 
         for (ll i = 0; i < size; i++)
         {
-            ll diff = mod - arr[i];
-
-            ll curr = 0;
-
-            for (ll j = 0; j < size; j++)
-                curr += (arr[j] + diff) % mod;
-
-            if (curr < base)
-                base = curr;
+            cin >> arr[i];
+            base += arr[i];
         }
-        cout << base << endl;
+
+        curr = Min = base;
+
+        for (ll i = 0; i < size; i++)
+            if (arr[i] > 0)
+                counter[m - arr[i]]++;
+
+        for (ll k = 1; k < m; k++)
+        {
+            curr += size - m * counter[k];
+            if (Min > curr)
+                Min = curr;
+        }
+
+        cout << Min << endl;
     }
     return 0;
 }
