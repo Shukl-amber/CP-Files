@@ -2,7 +2,7 @@
 using namespace std;
 typedef long long ll;
 
-int solve(int gen, int bit, ll bits_in_this_gen) // I am assuming 0 indexed bits and generations
+int solve(int gen, int bit, ll bits_in_this_gen) // I am assuming 1 indexed bits and 0 indexed generation
 {
     if (gen == 0)
         return 1;
