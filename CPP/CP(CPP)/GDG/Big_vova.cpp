@@ -45,14 +45,11 @@ int main()
                     }
                 }
             }
-            if (idx != -1) {
-                b[i] = a[idx];
-                used[idx] = true;
-                curr = __gcd(curr, a[idx]);
-                cout << b[i] << " ";
-            }
+            b[i] = a[idx];
+            used[idx] = true;
+            curr = __gcd(curr, a[idx]);
+            cout << b[i] << " ";
         }
-
     }
     return 0;
 }
