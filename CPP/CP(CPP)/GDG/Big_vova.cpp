@@ -8,40 +8,51 @@ int main()
     cin >> tc;
     while (tc--)
     {
-        ll size, max = -1, idx = -1, temp = 0, tempGCD = 0;
+        ll size, max = -1, idx = -1, temp = 0, tempGCD = 0, maxGCD = -1;
         cin >> size;
-        vector<vector<ll>> a(size, vector<ll>(size, 0));
+        vector<ll> a(size);
+        vector<bool> used(size, false);
         vector<ll> b(size, 0);
 
         for (ll i = 0; i < size; i++)
         {
-            cin >> a[i][0];
-            if (a[i][0] > max)
-                max = a[i][0],
+            cin >> a[i];
+            if (a[i] > max)
+                max = a[i],
                 idx = i;
         }
 
         ll curr = max;
-        idx = -1;
         b[0] = max;
-        a[0][1] = 1;
+        used[idx] = true;
 
-        for (ll i = 0; i < size; i++)
+        cout << b[0] << " ";
+
+        for (ll i = 1; i < size; i++)
         {
+            maxGCD = -1;
+            idx = -1;
             for (ll j = 0; j < size; j++)
             {
-                if (a[j][1] == 0)
+                if (!used[j])
                 {
-                    temp = a[j][0];
+                    temp = a[j];
                     tempGCD = __gcd(temp, curr);
-                    if (tempGCD > curr)
+                    if (tempGCD > maxGCD)
                     {
-                        curr = tempGCD;
+                        maxGCD = tempGCD;
                         idx = j;
                     }
                 }
             }
+            if (idx != -1) {
+                b[i] = a[idx];
+                used[idx] = true;
+                curr = __gcd(curr, a[idx]);
+                cout << b[i] << " ";
+            }
         }
+
     }
     return 0;
 }
