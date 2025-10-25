@@ -1,5 +1,6 @@
 .dist
 .vscode
 output
-temp.*
+temp.c
+Leon.c
 *.exe   
