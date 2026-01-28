@@ -12,29 +12,10 @@ int main()
         cin >> a >> b >> c;
 
         total += (b / 2);
-        b -= (b / 2);
 
-        if (c <= a)
-        {
-            total += c;
-            a -= c;
-        }
-        else
-        {
-            total += a;
-            a = 0;
-        }
+        total += min(a, c);
 
-        if (b > 0)
-            if (a > 1)
-            {
-                total += 1;
-                a -= 2;
-            }
-
-        total += (a/4);
-
-        cout << total;
+        cout << total << endl;
     }
     return 0;
 }
