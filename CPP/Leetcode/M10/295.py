@@ -1,18 +1,21 @@
 import heapq
 
 
-class PriorityQueue:
+class MedianFinder:
     def __init__(self):
-        self.heap = []
+        self.small = []
+        self.large = []
 
-    def insert(self, val: int) -> None:
-        heapq.heappush(self.heap, -val)
+    def addNum(self, num: int) -> None:
+        heapq.heappush(self.small, -num)
+        if self.large and -self.small[0] > self.large[0]:
+            heapq.heappush(self.large, -heapq.heappop(self.small))
+        if len(self.small) > len(self.large) + 1:
+            heapq.heappush(self.large, -heapq.heappop(self.small))
+        if len(self.large) > len(self.small):
+            heapq.heappush(self.small, -heapq.heappop(self.large))
 
-    def delete(self) -> int:
-        return -heapq.heappop(self.heap)
-
-    def peek(self) -> int:
-        return -self.heap[0]
-
-    def isEmpty(self) -> bool:
-        return len(self.heap) == 0
+    def findMedian(self) -> float:
+        if len(self.small) > len(self.large):
+            return float(-self.small[0])
+        return (-self.small[0] + self.large[0]) / 2.0

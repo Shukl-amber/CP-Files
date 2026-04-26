@@ -1,9 +1,13 @@
-def activitySelection(start, end):
-    activities = sorted(zip(start, end), key=lambda x: x[1])
-    count = 0
-    last_end = -1
-    for s, e in activities:
-        if s >= last_end:
-            count += 1
-            last_end = e
-    return count
+from typing import List
+
+
+class Solution:
+    def eraseOverlapIntervals(self, intervals: List[List[int]]) -> int:
+        intervals.sort(key=lambda x: x[1])
+        end = float("-inf")
+        kept = 0
+        for s, e in intervals:
+            if s >= end:
+                kept += 1
+                end = e
+        return len(intervals) - kept
