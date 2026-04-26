@@ -9,13 +9,11 @@ public:
         ListNode dummy(0, head);
         ListNode *prev = &dummy;
 
-        // Move prev to the node just before the reversal starts.
         for (int i = 1; i < left; i++)
             prev = prev->next;
 
         ListNode *curr = prev->next;
 
-        // Reverse sublist [left, right] by repeatedly moving next node after prev.
         for (int i = 0; i < right - left; i++)
         {
             ListNode *move = curr->next;
